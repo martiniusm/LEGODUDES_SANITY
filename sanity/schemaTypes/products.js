@@ -26,6 +26,17 @@ export const products = {
             title: "Produktbilde",
             name: "productimage",
             type: "image"
+        },
+        {
+            title: "Kategori",
+            name: "category",
+            type: "reference",
+            to: [{type: "categories"}]
+        },
+        {
+            title: "Lager",
+            name: "stock",
+            type: "number"
         }
     ]
 }
