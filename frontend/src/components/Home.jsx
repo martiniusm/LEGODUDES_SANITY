@@ -19,7 +19,9 @@ export default function Home({setAmount, cart, setCart}){
     return(
         <main>
             <h2>Velkommmen til LEGO-dudes</h2>
-            {products?.map((product, index) => <ProductCard key={index}
+            {products?.map((product, index) => 
+                <ProductCard 
+                key={index}
                 productInfo={product} 
                 setAmount={setAmount} 
                 cart={cart} 
