@@ -23,19 +23,13 @@ export default function ContentPage({amount, setAmount, category, setCart, cart}
   return(
       <main>
         <Title category={catInfo?.categorytitle} />
-        {/*  {products.map(product => 
-        <ProductCard
-        cart={cart} 
+        {catInfo?.catProducts.map((product, index) => <ProductCard 
+        key={index} 
+        productInfo={product}
+        setAmount={setAmount} 
         setCart={setCart}
-        prodid={product.prodid}
-        key={product.prodid} 
-        category={product.category} 
-        title={product.title} 
-        img={product.imagefile} 
-        price={product.price}
-        amount={amount}
-        setAmount={setAmount}
-        /> )} */}
+        cart={cart}
+        />)}
       </main>
   )
 }
