@@ -1,6 +1,6 @@
 export const products = {
     title: "Produkter",
-    name: "products",
+    name: "products", 
     type: "document",
     fields: [
         {
@@ -14,8 +14,13 @@ export const products = {
             type: "slug",
             options: {
                 source: "productname",
-                slugify: input => input.toLowerCase().replace(/\s+/g, "-")
+                slugify: input => input.toLowerCase().replace(/\s+/g, '-')
             }
+        },
+        {
+            title: "Beskrivelse",
+            name: "description",
+            type: "text"
         },
         {
             title: "Pris",
