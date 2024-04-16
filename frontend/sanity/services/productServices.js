@@ -25,7 +25,18 @@ export async function fetchProductBySlug(slug) {
         "catslug": category->categoryurl.current,
         "image": productimage.asset->url,
         price,
-        stock
+        stock,
+        reviews
     }`, {slug})
     return data
+}
+
+//Funksjon som legger til en anmeldelse på et produkt:
+export async function updateReview(productid, reviewer, rating, comment) {
+    const result = await writeClient
+    .patch(productid).setIfMissing({reviews: []})
+    .append("reviews", [{reviewer: reviewer, comment: comment, rating: rating}])
+    .commit({autoGenerateArraykeys: true})
+    .then(() => {return "Anmeldelse lagt til"})
+    .catch((error) => {return "Error: " + error.message})
 }
