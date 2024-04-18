@@ -10,7 +10,7 @@ export const client = createClient({
 // skp9TMP5FXjjdsy05AqwpT5oyXWoYZb344sB2nl7g3ehK8cYKFJaAiZQ7EPecQeP3LEZWIIFzCxiJpdWmjBQUdA8E0Su925Q2Ud
 // tckJEIHjRzAAqXvmzBIhK2XssYTe8G2CC9caa6jfJWSuQeISBlieou7I6mVu4teOE4NblDhsxEfp4Z5Ol
 
-export default writeClient = createClient({
+export const writeClient = createClient({
     projectId: "i7x2uj9v",
     dataset: "production",
     useCdn: false,

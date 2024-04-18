@@ -1,4 +1,4 @@
-import { client } from "../client";
+import { client, writeClient } from "../client";
 //Les mer om GROQ (Sanitys spørrespråk): https://www.sanity.io/docs/how-queries-work
 
 //Funksjon som henter alt innhold av type products fra Sanity
@@ -19,6 +19,7 @@ export async function fetchAllProducts() {
 //Funksjon som henter et produkt basert på en slug:
 export async function fetchProductBySlug(slug) {
     const data = await client.fetch(`*[_type == "products" && producturl.current == $slug]{
+        _id,
         productname,
         description,
         "categoryname": category->categorytitle,
@@ -39,4 +40,6 @@ export async function updateReview(productid, reviewer, rating, comment) {
     .commit({autoGenerateArraykeys: true})
     .then(() => {return "Anmeldelse lagt til"})
     .catch((error) => {return "Error: " + error.message})
+
+    return result
 }
